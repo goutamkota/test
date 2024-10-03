@@ -1,0 +1,34 @@
+<div class="w-100 d-flex justify-content-center">
+  <div class="container d-flex flex-column gap-4 m-2 p-3">
+    <div class="">
+      <h4>MATM</h4>
+      <p>Choose a Device to Connect</p>
+    </div>
+    <div class="w-100 d-md-flex justify-content-center gap-5">
+      <div class="card position-relative mb-3 mb-md-0" [class.bg-info-subtle]="selected" style="width: 15rem;" (click)="selected = true">
+        @if (selected) {
+          <img class="position-absolute tick-pos" src="./assets/tick.png" alt="tick" width="30">
+        }
+        <img [src]="pax" class="card-img-top mx-auto" alt="">
+        <div class="card-body">
+          <p class="card-text text-center">paxD180</p>
+        </div>
+      </div>
+      <div class="card position-relative" [class.bg-info-subtle]="selected == false" style="width: 15rem;" (click)="selected = false">
+        @if (selected == false) {
+          <img class="position-absolute tick-pos" src="./assets/tick.png" alt="tick" width="30">
+        }
+        <img [src]="morefun" class="card-img-top mx-auto" alt="">
+        <div class="card-body">
+          <p class="card-text text-center">moreFun</p>
+        </div>
+      </div>
+    </div>
+    <div class="w-100 d-md-flex justify-content-end">
+      <div class="w-100 d-flex flex-column flex-column-reverse justify-content-end flex-md-row gap-3">
+        <button class="btn btn-outline-primary px-5">Cancel</button>
+        <button class="btn btn-primary px-5" [routerLink]="'/matm'">Connect</button>
+      </div>
+    </div>
+  </div>
+</div>

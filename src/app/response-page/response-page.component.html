@@ -1,0 +1,44 @@
+<div class="w-100 d-flex justify-content-center">
+  <div class="container w-100 w-md-50">
+    <div class="w-100 d-flex flex-column align-items-center gap-md-2 gap-4">
+      @if (condition) {
+        <img src="./assets/success.gif" width="150" alt="failed">
+      } @else {
+        <img src="./assets/failed.gif" width="150" alt="failed">
+      }
+      <h4>₹1,000.00</h4>
+      @if (condition) {
+        <h5 class="text-success">Balance Enquiry Successful!</h5>
+      } @else {
+        <h5 class="text-danger">Balance Enquiry Failed!</h5>
+      }
+      <img src="./assets/print-download.png" alt="">
+      <div class="d-flex justify-content-center gap-5">
+        <div class="w-100 d-flex flex-column gap-2 gap-md-0">
+          <span class="text-secondary">Account Balance :</span>
+          <span class="text-secondary">Txn ID :</span>
+          <span class="text-secondary">Txn Time :</span>
+          <span class="text-secondary">Card No. :</span>
+          <span class="text-secondary">RRN :</span>
+          <span class="text-secondary">TID :</span>
+          <span class="text-secondary">Txn Status :</span>
+          <span class="text-secondary">MID :</span>
+        </div>
+        <div class="w-100 d-flex flex-column gap-2 gap-md-0">
+          <span>N/A</span>
+          <span>2364839954646</span>
+          <span class="text-nowrap">2024-06-23, 12:20:08</span>
+          <span>XXXX-XXXX-3221</span>
+          <span>68734626423</span>
+          <span>06914573</span>
+          <span>Failed</span>
+          <span>IS1114343E342</span>
+        </div>
+      </div>
+      @if (condition) {
+      <button class="btn btn-success px-5"><span class="mx-5 px-5">Alright!</span></button>
+      } @else {
+      <button class="btn btn-danger px-5"><span class="mx-5 px-5">Close</span></button>
+      }
+    </div>
+  </div>

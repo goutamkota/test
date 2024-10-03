@@ -1,0 +1,60 @@
+<div class="container d-flex flex-column gap-4 m-2 p-3">
+  <div class="">
+    <h4>Micro ATM</h4>
+  </div>
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>Cash Withdraw</button>
+      <ng-template ngbNavContent>
+        <div class="mb-3">
+          <h4 style="color: #546881">Cash Withdraw</h4>
+          <p style="color: #A3ADBB">Send Money Everytime and Everywhere </p>
+        </div>
+        <form>
+          <div class=" w-100 d-flex flex-column flex-md-row gap-2">
+            <div class="w-100">
+              <label for="enter-amt" class="form-label">Enter Amount</label>
+              <input type="number" class="form-control" placeholder="₹0.0" id="enter-amt">
+              <div class="form-text d-flex justify-content-between">Min. Amt. ₹100
+                <div class="d-flex gap-3"><span>₹500</span><span>₹1000</span><span>₹2000</span><span>₹5000</span></div>
+              </div>
+            </div>
+            <div class="w-100">
+              <label for="mob-num" class="form-label">Mobile Number</label>
+              <input type="number" class="form-control" id="mob-num" placeholder="Enter Mobile Number">
+            </div>
+          </div>
+          <div class="w-100 d-flex flex-column flex-column-reverse flex-md-row justify-content-end gap-3 mt-3">
+            <button class="btn btn-outline-primary px-5" [routerLink]="''">Cancel</button>
+            <button class="btn btn-primary px-5" [routerLink]="'/resp'">Insert Card</button>
+          </div>
+        </form>
+
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>Balance Enquiry</button>
+      <ng-template ngbNavContent>
+        <div class="mb-3">
+          <h4 style="color: #546881">Cash Withdraw</h4>
+          <p style="color: #A3ADBB">Send Money Everytime and Everywhere </p>
+        </div>
+        <form>
+          <div class=" w-100 d-flex flex-column flex-md-row gap-2">
+            <div class="w-50">
+              <label for="mob-num" class="form-label">Mobile Number</label>
+              <input type="number" class="form-control" id="mob-num" placeholder="Enter Mobile Number">
+            </div>
+          </div>
+          <div class="w-100 d-flex flex-column flex-column-reverse flex-md-row justify-content-end gap-3 mt-3">
+            <button class="btn btn-outline-primary px-5">Cancel</button>
+            <button class="btn btn-primary px-5">Insert Card</button>
+          </div>
+        </form>
+
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+</div>
