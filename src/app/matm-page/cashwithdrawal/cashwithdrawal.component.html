@@ -1,0 +1,149 @@
+<div class="col-md-12">
+  <form [formGroup]="matm_amntform">
+    <div class="col-md-8">
+      <div class="form-group">
+        <div class="input_field_container">
+          <label for="cashwithdraw" class="form_label"
+          ><strong>Amount</strong><span class="text-danger">*</span>
+          </label>
+          <input
+            id="cashwithdraw"
+            class="input_field"
+            formControlName="amountSelect"
+            type="text"
+            maxlength="5"
+            placeholder="Enter Amount between 100 - 10000"
+            aria-label="UsrMode"
+            onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+          />
+        </div>
+        <span
+          *ngIf="
+            matm_amntform.get('amountSelect')?.touched &&
+            matm_amntform.get('amountSelect')?.hasError('required')
+          "
+        >
+          <span class="err-message">&nbsp;Amount is required.</span>
+        </span>
+        <span
+          *ngIf="
+            matm_amntform.get('amountSelect')?.touched &&
+            matm_amntform.get('amountSelect')?.hasError('max')
+          "
+        >
+          <span class="err-message">&nbsp;Maximum Amount is 10000.</span>
+        </span>
+        <span *ngIf="matm_amntform.get('amountSelect')?.touched && matm_amntform.get('amountSelect')?.hasError('min')">
+          <span class="err-message">&nbsp;Minimum Amount is 100.</span>
+        </span>
+      </div>
+    </div>
+    <div class="col-md-8 mt-2 select_amount">
+      <h4 class="amount_block">Min - ₹ 500</h4>
+
+      <div class="amount_row">
+        <h4
+          *ngFor="let amount of transactionbadge; trackBy: trackByIndex; let i = index"
+          class="amount_block"
+          (click)="currentSelectedAmount(amount)"
+          [ngClass]="{ selected_amount: selected_cw_amnt == amount }">
+          {{ amount }}
+        </h4>
+      </div>
+    </div>
+    <div class="col-md-8 mt-2">
+      <div class="form-group">
+        <div class="input_field_container">
+          <label class="form_label" for="mobilenum"
+          ><strong>Mobile Number</strong>
+          </label>
+          <input
+            id="mobilenum"
+            class="input_field"
+            formControlName="mobilenum"
+            type="text"
+            maxlength="10"
+            placeholder="Enter Mobile Number"
+            onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+            pattern="[6789][0-9]{9}"
+          />
+        </div>
+        <span
+          *ngIf="
+            matm_amntform.get('mobilenum')?.touched &&
+            matm_amntform.get('mobilenum')?.hasError('required')
+          "
+        >
+          <span class="err-message">&nbsp;Mobile Number is required.</span>
+        </span>
+        <span
+          *ngIf="
+            matm_amntform.get('mobilenum')?.touched &&
+            matm_amntform.get('mobilenum')?.hasError('pattern')
+          "
+        >
+          <span class="err-message">&nbsp;Invalid Mobile Number.</span>
+        </span>
+        <span
+          *ngIf="
+            matm_amntform.get('mobilenum')?.touched &&
+            matm_amntform.get('mobilenum')?.hasError('maxLength')
+          "
+        >
+          <span class="err-message">&nbsp;Maximum length is 10 allowed.</span>
+        </span>
+        <span class="err-message"
+              *ngIf="matm_amntform.get('mobilenum')?.touched && matm_amntform.get('mobilenum')?.hasError('minLength')">
+          Minimum length is 10 allowed.
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4 btn_c">
+      <button
+        type="button"
+        class="insert_btn"
+        (click)="showtrandetail()"
+        [disabled]="appService.insrtcard || matm_amntform.valid == undefined || matm_amntform.invalid"
+      >
+        Insert Card
+      </button>
+    </div>
+  </form>
+</div>
+
+<!--<app-ui-modal #modalDefault [containerClick]="false" class="vpaModal">-->
+<!--  <div class="app-modal-header">-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn-close float-end py-2"-->
+<!--      data-dismiss="modal"-->
+<!--      aria-label="Close"-->
+<!--      (click)="modalDefault.hide()"-->
+<!--    >-->
+<!--      <span aria-hidden="true">&times;</span>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <div class="app-modal-body">-->
+<!--    <h4>Please check, if ELWeb Service is running and Device screen is on</h4>-->
+<!--  </div>-->
+<!--  <div class="app-modal-footer">-->
+<!--    <div class="rowss" id="confirm_btn">-->
+<!--      <button-->
+<!--        type="button"-->
+<!--        class="btn btn-danger mr-3"-->
+<!--        id="btn_cancel"-->
+<!--        data-dismiss="modal"-->
+<!--        (click)="modalDefault.hide()"-->
+<!--      >-->
+<!--        Close</button-->
+<!--      >&nbsp;-->
+<!--      <button-->
+<!--        type="button"-->
+<!--        class="btn btn-primary pb-3"-->
+<!--        (click)="golocalHost()"-->
+<!--      >-->
+<!--        Check ElService-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</app-ui-modal>-->

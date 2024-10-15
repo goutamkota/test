@@ -2,3 +2,24 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+:root {
+  .btn-primary {
+    background: linear-gradient(180deg, #0caac780, #0caac7) !important;
+    border: 1px solid white;
+  }
+
+  .btn-outline-primary-custom {
+    border: 1px solid #0caac7;
+    color: #0caac7;
+  }
+
+  .btn-outline-primary-custom:hover {
+    color: white !important;
+    background: linear-gradient(180deg, #0caac780, #0caac7) !important;
+    border: none;
+  }
+}
+
+
+//linear-gradient(180deg, red, yellow);

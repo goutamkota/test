@@ -1,0 +1,109 @@
+<form row [formGroup]="matm_balanceform">
+  <div class="col-md-8">
+    <div class="form-group">
+      <div class="input_field_container">
+        <label for="mobilenum" class="form_label"
+        ><strong>Mobile Number</strong><span class="text-danger">*</span>
+        </label>
+        <input
+          class="input_field"
+          id="mobilenum"
+          formControlName="mobilenum"
+          type="text"
+          maxlength="10"
+          onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+          placeholder="Enter Mobile Number"
+          aria-label="UsrMode"
+          pattern="[6789][0-9]{9}"
+        />
+      </div>
+
+      <span
+        *ngIf="
+          matm_balanceform.get('mobilenum')?.touched &&
+          matm_balanceform.get('mobilenum')?.hasError('required')
+        "
+      >
+        <span class="err-message">&nbsp; Mobile Number is required.</span>
+      </span>
+      <span
+        *ngIf="
+          matm_balanceform.get('mobilenum')?.touched &&
+          matm_balanceform.get('mobilenum')?.hasError('pattern')
+        "
+      >
+        <span class="err-message">&nbsp;Invalid Mobile Number.</span>
+      </span>
+      <span
+        *ngIf="
+          matm_balanceform.get('mobilenum')?.touched &&
+          matm_balanceform.get('mobilenum')?.hasError('maxLength')
+        "
+      >
+        <span class="err-message">&nbsp;Maximum length is 10 allowed.</span>
+      </span>
+      <span
+        *ngIf="
+          matm_balanceform.get('mobilenum')?.touched &&
+          matm_balanceform.get('mobilenum')?.hasError('minLength')
+        "
+      >
+        <span class="err-message">&nbsp;Minimum length is 10 allowed.</span>
+      </span>
+    </div>
+  </div>
+</form>
+<div class="card_logo mt-3">
+  <img  [src]="insertcardImage" alt="" />
+</div>
+<div class="row col-md-12 btn_finish">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <button
+      type="button"
+      class="insert_btn"
+      (click)="insert_enq()"
+      [disabled]="insrtcard || matm_balanceform.invalid"
+    >
+      Insert card
+    </button>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<!--<app-ui-modal #modalDefault [containerClick]="false" class="vpaModal">-->
+<!--  <div class="app-modal-header">-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn-close float-end py-2"-->
+<!--      data-dismiss="modal"-->
+<!--      aria-label="Close"-->
+<!--      (click)="modalDefault.hide()"-->
+<!--    >-->
+<!--      <span aria-hidden="true">&times;</span>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <div class="app-modal-body">-->
+<!--    <h4>Please check, if ELWeb Service is running and Device screen is on</h4>-->
+<!--  </div>-->
+<!--  <div class="app-modal-footer">-->
+<!--    <div class="rowss" id="confirm_btn">-->
+<!--      <button-->
+<!--        type="button"-->
+<!--        class="btn btn-danger mr-3"-->
+<!--        id="btn_cancel"-->
+<!--        data-dismiss="modal"-->
+<!--        (click)="modalDefault.hide()"-->
+<!--      >-->
+<!--        Close</button-->
+<!--      >&nbsp;-->
+<!--      <button-->
+<!--        type="button"-->
+<!--        class="btn btn-primary pb-3"-->
+<!--        (click)="golocalHost()"-->
+<!--      >-->
+<!--        Check ElService-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</app-ui-modal>-->

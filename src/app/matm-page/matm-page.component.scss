@@ -1,3 +1,12 @@
 .light-grey {
   color: #546881;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  .w-md-100{
+    width: 100% !important;
+  }
+}
